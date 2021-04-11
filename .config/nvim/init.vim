@@ -1,32 +1,9 @@
 
-" General {{{
-
-    "set numbering
-    set number relativenumber
-
-    "set true colors 
-    set termguicolors
-
-    "set Leader and LocalLeader
-    let mapleader = ","
-    let maplocalleader = ";"
-
-    "set tab settings
-    filetype plugin indent on
-    " show existing tab with 4 spaces width
-    set tabstop=4
-    " when indenting with '>', use 4 spaces width
-    set shiftwidth=4
-    " On pressing tab, insert 4 spaces
-    set expandtab
-
-" }}}
-
-
 
 call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'w0rp/ale' "Linting
+    Plug 'overcache/NeoSolarized' "Color scheme
 " }}}
 
 " Nvim-R {{{
@@ -84,3 +61,35 @@ call plug#begin('~/.vim/plugged')
 
 
 call plug#end()
+
+
+
+" General {{{
+
+    "set numbering
+    set number relativenumber
+
+    "set true colors 
+    set termguicolors
+    
+    "set colorscheme
+    colorscheme NeoSolarized
+
+    "tmux hack to make truecolor work
+     set t_8f=^[[38;2;%lu;%lu;%lum
+     set t_8b=^[[48;2;%lu;%lu;%lum
+
+    "set Leader and LocalLeader
+    let mapleader = ","
+    let maplocalleader = ";"
+
+    "set tab settings
+    filetype plugin indent on
+    " show existing tab with 4 spaces width
+    set tabstop=4
+    " when indenting with '>', use 4 spaces width
+    set shiftwidth=4
+    " On pressing tab, insert 4 spaces
+    set expandtab
+
+" }}}
