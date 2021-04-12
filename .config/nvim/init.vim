@@ -74,6 +74,7 @@ call plug#end()
     
     "set colorscheme
     colorscheme NeoSolarized
+    set background=light
 
     "tmux hack to make truecolor work
      set t_8f=^[[38;2;%lu;%lu;%lum
