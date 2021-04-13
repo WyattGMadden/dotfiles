@@ -21,11 +21,15 @@ call plug#begin('~/.vim/plugged')
     " remapping selection :: send multiple lines
     vmap <Space> <Plug>RDSendSelection
     " map pipe  
-    autocmd FileType r inoremap <buffer> M <Esc>:normal! a %>%<CR>a 
-    autocmd FileType rnoweb inoremap <buffer> M <Esc>:normal! a %>%<CR>a 
-    autocmd FileType rmd inoremap <buffer> M <Esc>:normal! a %>%<CR>a
+    autocmd FileType r inoremap <buffer> Â <Esc>:normal! a %>%<CR>a 
+    autocmd FileType rnoweb inoremap <buffer> Â <Esc>:normal! a %>%<CR>a 
+    autocmd FileType rmd inoremap <buffer> Â <Esc>:normal! a %>%<CR>a
+
     "reassign assignment
-    let R_assign_map = 'A'
+    autocmd FileType r inoremap <buffer> Å <Esc>:normal! a -> <CR>a 
+    autocmd FileType rnoweb inoremap <buffer> Å <Esc>:normal! a -> <CR>a
+    autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a -> <CR>a
+    let R_assign_map = 'Å'
 
     
     " set a minimum source editor width
@@ -118,5 +122,9 @@ call plug#end()
     "buffer tab settings
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
-
+    
+    
 " }}}
+
+
+
