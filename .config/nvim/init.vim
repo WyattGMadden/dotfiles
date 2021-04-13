@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'w0rp/ale' "Linting
     Plug 'overcache/NeoSolarized' "Color scheme
+    Plug 'vim-airline/vim-airline' "tabs
+    Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " Nvim-R {{{
@@ -24,6 +26,19 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType rmd inoremap <buffer> M <Esc>:normal! a %>%<CR>a
     "reassign assignment
     let R_assign_map = 'A'
+
+    
+    " set a minimum source editor width
+    let R_min_editor_width = 80
+
+    " make sure the console is at the bottom by making it really wide
+    let R_rconsole_width = 1000
+
+    " show arguments for functions during omnicompletion
+    let R_show_args = 1
+
+    " Don't expand a dataframe to show columns by default
+    let R_objbr_opendf = 0
 " }}}
 
 " Autocomplete/snippets etc {{{
@@ -65,6 +80,13 @@ call plug#end()
 
 
 " General {{{
+    
+    """key bindings
+
+    " move among buffers with CTRL
+    map <C-J> :bnext<Shift>
+    map <C-K> :bprev<Shift>
+
 
     "set numbering
     set number relativenumber
@@ -92,5 +114,9 @@ call plug#end()
     set shiftwidth=4
     " On pressing tab, insert 4 spaces
     set expandtab
+
+    "buffer tab settings
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " }}}
