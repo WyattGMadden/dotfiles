@@ -6,6 +6,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'scrooloose/nerdtree' "nerdtree
+    """""""""""""""""""""
+    """NERDTree Plugin"""
+    """""""""""""""""""""
+    " Opens NERDTree with custom shortcut, here 'zz'
+    let mapleader = "z" 
+    nmap <leader>z :NERDTreeToggle<cr>
+
+    " Instruct NERDTree to always opens in the current folder
+    set autochdir
+    let NERDTreeChDirMode=2
+    nnoremap <leader>n :NERDTree .<CR>
+
+    " Optional to show special NERDTree browser characters properly (e.g. on remote linux system) 
+    let g:NERDTreeDirArrows=0
+
+    " Show bookmarks by default
+    let NERDTreeShowBookmarks=1
+    """""""""""""""""""""""
+
 " }}}
 
 " Nvim-R {{{
@@ -26,9 +46,9 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType rmd inoremap <buffer> Â <Esc>:normal! a %>%<CR>a
 
     "reassign assignment
-    autocmd FileType r inoremap <buffer> Å <Esc>:normal! a -> <CR>a 
-    autocmd FileType rnoweb inoremap <buffer> Å <Esc>:normal! a -> <CR>a
-    autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a -> <CR>a
+    autocmd FileType r inoremap <buffer> Å <Esc>:normal! a <-<CR>a 
+    autocmd FileType rnoweb inoremap <buffer> Å <Esc>:normal! a <-<CR>a
+    autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     let R_assign_map = 'Å'
 
     
@@ -99,7 +119,7 @@ call plug#end()
     set termguicolors
     
     "set colorscheme
-    colorscheme NeoSolarized
+    colorscheme southernlights
     set background=light
 
     "tmux hack to make truecolor work

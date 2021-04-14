@@ -6,6 +6,18 @@ export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+#from southern lights nvim-R colorscheme github  https://github.com/jalvesaq/southernlights
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
+then
+    export TERM=xterm-256color
+    export HAS_256_COLORS=yes
+fi
+if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
+then
+    export TERM=screen-256color
+fi
+
+
 #PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
 
 # Setting PATH for Python 3.6
