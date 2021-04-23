@@ -30,10 +30,12 @@ call plug#begin('~/.vim/plugged')
 
 " Nvim-R {{{
     Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-    Plug 'chrisbra/csv.vim'
+    "Plug 'chrisbra/csv.vim'
 
     "ft plugins enabled (necessary for csv plugin
     :filetype plugin on
+
+    let R_csv_app = 'terminal:vd'
 
     " mappings
     " remapping the basic :: send line
