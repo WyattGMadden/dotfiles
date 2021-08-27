@@ -50,3 +50,9 @@ PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] [\w]\[\033[00m\]'
 
 ### Functions
  aa_256 () { ( x=`tput op` y=`printf %$((${COLUMNS}-6))s`; for i in {0..256}; do o=00$i; echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x; done ) }
+
+ #mkdir and cd at same time
+ mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
