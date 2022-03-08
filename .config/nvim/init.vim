@@ -100,6 +100,17 @@ call plug#begin('~/.vim/plugged')
     set completeopt=noinsert,menuone,noselect
 " }}}
 
+    "LATEX
+    Plug 'lervag/vimtex'
+
+    "fix biber problem
+    "let g:Tex_BibtexFlavor = 'biber'
+    "let g:Tex_DefaultTargetFormat="pdflatex"
+    " The following is relevant to make LaTeX rerun after biber if necessary: 
+    " (include all formats for which re-running is to be enabled)
+    let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
+    "run biber shortcut
+    "map <Leader>lb :<C-U>exec '!biber '.Tex_GetMainFileName(':p:t:r')<CR>
 
 call plug#end()
 
