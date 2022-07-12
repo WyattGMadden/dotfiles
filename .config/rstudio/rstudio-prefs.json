@@ -6,7 +6,7 @@
     "check_arguments_to_r_function_calls": true,
     "font_size_points": 11,
     "editor_theme": "Merbivore Soft",
-    "default_project_location": "~/Documents/raina/raina",
+    "default_project_location": "~/Desktop",
     "source_with_echo": true,
     "default_sweave_engine": "knitr",
     "restore_source_documents": false,

@@ -66,6 +66,11 @@ call plug#begin('~/.vim/plugged')
     " Don't expand a dataframe to show columns by default
     let R_objbr_opendf = 0
 " }}}
+"
+" pyvim: {{{
+    Plug 'jupyter-vim/jupyter-vim'
+" }}}
+"
 
 " Autocomplete/snippets etc {{{
     Plug 'ncm2/ncm2'
