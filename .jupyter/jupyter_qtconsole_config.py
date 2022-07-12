@@ -352,7 +352,7 @@
 #  
 #          Outputs are not displayed until enter is pressed.
 #  Default: False
- c.ConsoleWidget.include_other_output = True
+c.ConsoleWidget.include_other_output = True
 
 ## The type of underlying text widget to use. Valid values are 'plain', which
 #  specifies a QPlainTextEdit, and 'rich', which specifies a QTextEdit.

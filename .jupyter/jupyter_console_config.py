@@ -324,7 +324,7 @@
 ## Whether to include output from clients
 #          other than this one sharing the same kernel.
 #  Default: False
- c.ZMQTerminalInteractiveShell.include_other_output = True
+c.ZMQTerminalInteractiveShell.include_other_output = True
 
 ## Timeout (in seconds) for giving up on a kernel's is_complete
 #          response.
