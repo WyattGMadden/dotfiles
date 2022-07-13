@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'w0rp/ale' "Linting
     Plug 'jpalardy/vim-slime'
-    let g:slime_target = "neovim"
+    let g:slime_target = "neovim" 
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
