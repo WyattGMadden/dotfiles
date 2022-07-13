@@ -3,6 +3,8 @@
 call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'w0rp/ale' "Linting
+    Plug 'jpalardy/vim-slime'
+    let g:slime_target = "neovim"
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
@@ -128,6 +130,7 @@ call plug#end()
     " move among buffers with CTRL
     map <C-J> :bnext<Shift>
     map <C-K> :bprev<Shift>
+    :tnoremap <Esc> <C-\><C-n>
 
 
     "set numbering
