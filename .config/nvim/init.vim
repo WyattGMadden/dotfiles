@@ -4,7 +4,8 @@ call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'w0rp/ale' "Linting
     Plug 'jpalardy/vim-slime'
-    let g:slime_target = "neovim" 
+    let g:slime_target = "tmux" 
+    let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
@@ -163,6 +164,7 @@ call plug#end()
     "buffer tab settings
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
+
     
     
 " }}}
