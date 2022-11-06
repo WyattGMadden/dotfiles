@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale' "Linting
     Plug 'jpalardy/vim-slime'
     let g:slime_target = "tmux" 
-    let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+    let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
