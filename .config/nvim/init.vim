@@ -7,6 +7,9 @@ call plug#begin('~/.vim/plugged')
     let g:slime_target = "tmux" 
     let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
     Plug 'overcache/NeoSolarized' "Color scheme
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
+    Plug 'ellisonleao/gruvbox.nvim' "Color scheme
+    Plug 'EdenEast/nightfox.nvim' "Color scheme
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
     Plug 'scrooloose/nerdtree' "nerdtree
@@ -69,6 +72,10 @@ call plug#begin('~/.vim/plugged')
     " Don't expand a dataframe to show columns by default
     let R_objbr_opendf = 0
 " }}}
+"
+" stan {{{
+    Plug 'eigenfoo/stan-vim'
+"}}}
 "
 " pyvim: {{{
     Plug 'jupyter-vim/jupyter-vim'
@@ -141,12 +148,16 @@ call plug#end()
     set termguicolors
     
     "set colorscheme
-    colorscheme southernlights
-    set background=light
+    "colorscheme tokyonight-storm
+    "colorscheme southernlights
+    "set background=light
+    colorscheme carbonfox
+    "set background=dark " or light if you want light mode
+    "colorscheme gruvbox
 
     "tmux hack to make truecolor work
-     set t_8f=^[[38;2;%lu;%lu;%lum
-     set t_8b=^[[48;2;%lu;%lu;%lum
+    set t_8f=^[[38;2;%lu;%lu;%lum
+    set t_8b=^[[48;2;%lu;%lu;%lum
 
     "set Leader and LocalLeader
     let mapleader = ","
