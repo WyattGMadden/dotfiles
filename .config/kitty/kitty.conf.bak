@@ -1345,9 +1345,3 @@
 #: }}}
 
 # }}}
-
-
-# BEGIN_KITTY_THEME
-# Gruvbox Dark Hard
-include current-theme.conf
-# END_KITTY_THEME
