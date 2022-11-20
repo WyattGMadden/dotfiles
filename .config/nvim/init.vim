@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'jpalardy/vim-slime'
     let g:slime_target = "tmux" 
     let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
+    let g:slime_python_ipython = 1
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
     Plug 'ellisonleao/gruvbox.nvim' "Color scheme
