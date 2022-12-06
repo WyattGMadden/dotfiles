@@ -1,6 +1,6 @@
 setHook(packageEvent("grDevices", "onLoad"),
-        function(...) grDevices::quartz.options(width = 8, height = 6,
-                                                pointsize = 10))
+        function(...) grDevices::quartz.options(width = 30, height = 20,
+                                                pointsize = 30))
 
 require(colorout)
 setOutputColors256(normal = 202,
