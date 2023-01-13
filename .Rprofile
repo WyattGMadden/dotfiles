@@ -20,3 +20,12 @@ setOutputColors256(normal = 202,
 if (interactive()) {
   suppressMessages(require(devtools))
 }
+options(
+  usethis.full_name = "Wyatt Madden",
+  usethis.description = list(
+    `Authors@R` = 'person("Wyatt", "Madden", email = "wyattgmadden@gmail.com", role = c("aut", "cre"), 
+    comment = c(ORCID = "0000-0002-9792-7077"))',
+    License = "MIT + file LICENSE",
+    Version = "0.0.0.9000"
+  )
+)
