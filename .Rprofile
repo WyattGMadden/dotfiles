@@ -2,7 +2,10 @@ setHook(packageEvent("grDevices", "onLoad"),
         function(...) grDevices::quartz.options(width = 30, height = 20,
                                                 pointsize = 30))
 
-require(colorout)
+if (interactive()) {
+    suppressMessages(require(colorout))
+}
+
 setOutputColors256(normal = 202,
                    number = 214,
                    negnum = 209,
