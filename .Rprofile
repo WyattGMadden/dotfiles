@@ -12,3 +12,8 @@ setOutputColors256(normal = 202,
                    warn = 209,
                    error = 209,
                    verbose = FALSE)
+
+# recommended for package development
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
