@@ -1,7 +1,9 @@
 setHook(packageEvent("grDevices", "onLoad"),
-        function(...) grDevices::quartz.options(width = 35, height = 20,
-                                                pointsize = 40))
+        #function(...) grDevices::quartz.options(width = 35, height = 20,
+        #                                        pointsize = 40, dpi = 70))
 
+        function(...) grDevices::quartz.options(width = 12, height = 7,
+                                                 dpi = 100))
 if (interactive()) {
     suppressMessages(require(colorout))
     setOutputColors256(normal = 202,
