@@ -2,6 +2,7 @@
 
 call plug#begin('~/.vim/plugged')
 " General {{{
+    Plug 'github/copilot.vim' 
     Plug 'w0rp/ale' "Linting
     Plug 'jpalardy/vim-slime'
     let g:slime_target = "tmux" 
