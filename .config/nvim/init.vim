@@ -45,6 +45,16 @@ call plug#begin('~/.vim/plugged')
 
     let R_csv_app = 'terminal:vd'
 
+    " custom nvim-r mappings
+    function! s:customNvimRMappings()
+        map <silent> <LocalLeader>kk :call g:SendCmdToR("load_all()")<CR>
+    endfunction
+    augroup myNvimR
+       au!
+       autocmd filetype r call s:customNvimRMappings()
+    augroup end
+    "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
+
     " mappings
     " remapping the basic :: send line
     nmap <Space> <Plug>RDSendLine
@@ -61,6 +71,7 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     let R_assign_map = 'Å'
 
+
     
     " set a minimum source editor width
     let R_min_editor_width = 80
@@ -73,6 +84,8 @@ call plug#begin('~/.vim/plugged')
 
     " Don't expand a dataframe to show columns by default
     let R_objbr_opendf = 0
+
+
 " }}}
 "
 " stan {{{
