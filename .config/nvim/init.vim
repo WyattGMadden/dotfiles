@@ -49,10 +49,12 @@ call plug#begin('~/.vim/plugged')
     function! s:customNvimRMappings()
         map <silent> <LocalLeader>jl :call g:SendCmdToR("load_all()")<CR>
         map <silent> <LocalLeader>jd :call g:SendCmdToR("document()")<CR>
+        map <silent> <LocalLeader>jb :call g:SendCmdToR("build_readme()")<CR>
     endfunction
     augroup myNvimR
        au!
        autocmd filetype r call s:customNvimRMappings()
+       autocmd filetype rmd call s:customNvimRMappings()
     augroup end
     "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
 
