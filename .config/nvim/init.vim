@@ -47,9 +47,10 @@ call plug#begin('~/.vim/plugged')
 
     " custom nvim-r mappings
     function! s:customNvimRMappings()
-        map <silent> <LocalLeader>jl :call g:SendCmdToR("load_all()")<CR>
-        map <silent> <LocalLeader>jd :call g:SendCmdToR("document()")<CR>
-        map <silent> <LocalLeader>jb :call g:SendCmdToR("build_readme()")<CR>
+        map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
+        map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
+        map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
+        map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
     endfunction
     augroup myNvimR
        au!
