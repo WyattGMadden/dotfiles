@@ -65,8 +65,3 @@ alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
-alias l='command ls -Av1h --color=always --time-style='+%Y-%b-%d' --group-directories-first'
-    # -A: show all, including dotfiles, except . and ..
-    # -v: natural sort of number
-    # -1 (one): list (use -l for long version)
-    # -h: human-readable sizes
