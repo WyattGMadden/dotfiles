@@ -57,9 +57,16 @@ PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] [\w]\[\033[00m\]'
   cd "$1"
 }
 
+
+
 ###ALIASES###
 alias mu="mupdf-gl"
 alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
+alias l='command ls -Av1h --color=always --time-style=long-iso --group-directories-first'
+    # -A: show all, including dotfiles, except . and ..
+    # -v: natural sort of number
+    # -1 (one): list (use -l for long version)
+    # -h: human-readable sizes
