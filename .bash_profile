@@ -65,3 +65,9 @@ alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
+alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+
+###FUNCTIONS###
+scpw () {
+    scp "$1" "wmadden@clogin01.sph.emory.edu:./$2"
+}
