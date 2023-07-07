@@ -68,6 +68,9 @@ alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 
 ###FUNCTIONS###
-scpw () {
+scpwto () {
     scp "$1" "wmadden@clogin01.sph.emory.edu:./$2"
+}
+scpwfrom () {
+    scp "wmadden@clogin01.sph.emory.edu:./$1" "$2"
 }
