@@ -1,5 +1,14 @@
 # Configuration file for ipython.
 
+
+# automatically reload imported files when updated 
+c.InteractiveShellApp.extensions = ['autoreload']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+
+
+
+
+
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
 #------------------------------------------------------------------------------
