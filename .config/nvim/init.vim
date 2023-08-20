@@ -4,10 +4,6 @@ call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'github/copilot.vim' 
     Plug 'w0rp/ale' "Linting
-    Plug 'jpalardy/vim-slime'
-    let g:slime_target = "tmux" 
-    let g:slime_default_config = {"socket_name": "default", "target_pane": "{next}"}
-    let g:slime_python_ipython = 1
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
     Plug 'ellisonleao/gruvbox.nvim' "Color scheme
@@ -15,6 +11,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline' "tabs
     Plug 'vim-airline/vim-airline-themes'
     Plug 'scrooloose/nerdtree' "nerdtree
+    Plug 'mfussenegger/nvim-dap' "debugging
+    Plug 'rcarriga/nvim-dap-ui' "debugging
     """""""""""""""""""""
     """NERDTree Plugin"""
     """""""""""""""""""""
@@ -91,6 +89,27 @@ call plug#begin('~/.vim/plugged')
 
 
 " }}}
+" vim slime {{{
+    Plug 'jpalardy/vim-slime'
+    let g:slime_target = "tmux" 
+    let g:slime_default_config = {"socket_name": "default", "target_pane": "{next}"}
+    let g:slime_python_ipython = 1
+    let g:slime_preserve_curpos = 0 "don't preserve cursor position when sending code
+    let g:slime_no_mappings = 1 "don't define default mappings
+    autocmd FileType python nmap <buffer> <LocalLeader>l <Plug>SlimeLineSend
+    autocmd FileType python nmap <buffer> <LocalLeader>c <Plug>SlimeParagraphSend
+    autocmd FileType python xmap <buffer> <LocalLeader>c <Plug>SlimeRegionSend
+    autocmd FileType python nmap <buffer> <LocalLeader>q :call slime#send("quit()\n") <CR>`
+    autocmd FileType python nmap <buffer> <LocalLeader>i :call slime#send("i") <CR>`
+    "xmap <LocalLeader>cc <Plug>SlimeRegionSend
+    "nmap <c-c><c-c> <Plug>SlimeParagraphSend
+    "nmap <c-c>v     <Plug>SlimeConfig
+
+    "nnoremap <C-q> :call slime#send("quit()\n") <CR>`
+    "nnoremap <C-q> :call slime#send("quit()\n") <CR>`
+
+
+"}}}
 "
 " stan {{{
     Plug 'eigenfoo/stan-vim'
