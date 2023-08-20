@@ -100,7 +100,7 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType python nmap <buffer> <LocalLeader>c <Plug>SlimeParagraphSend
     autocmd FileType python xmap <buffer> <LocalLeader>c <Plug>SlimeRegionSend
     autocmd FileType python nmap <buffer> <LocalLeader>q :call slime#send("quit()\n") <CR>`
-    autocmd FileType python nmap <buffer> <LocalLeader>i :call slime#send("i") <CR>`
+    autocmd FileType python nmap <buffer> <LocalLeader>i :call slime#send("i\n") <CR>`
     "xmap <LocalLeader>cc <Plug>SlimeRegionSend
     "nmap <c-c><c-c> <Plug>SlimeParagraphSend
     "nmap <c-c>v     <Plug>SlimeConfig
