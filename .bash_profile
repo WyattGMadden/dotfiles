@@ -68,10 +68,40 @@ alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 
+###############
 ###FUNCTIONS###
+###############
+
+### send files to the cluster
 scpwto () {
     scp "$1" "wmadden@clogin01.sph.emory.edu:./$2"
 }
+
+### return files from the cluster
 scpwfrom () {
     scp "wmadden@clogin01.sph.emory.edu:./$1" "$2"
 }
+
+### Create a new Rmd file
+rmd() {
+  if [ -z "$1" ]; then
+    echo "Please provide the file name."
+    return 1
+  fi
+
+  cat << EOF > "$1.Rmd"
+---
+title: "Analysis"
+author: "Wyatt Madden"
+date: "`date +'%Y-%m-%d'`"
+output: pdf_document
+---
+
+# Introduction
+
+Write your content here.
+
+EOF
+  echo "File $1.Rmd created."
+}
+
