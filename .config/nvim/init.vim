@@ -73,6 +73,9 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     let R_assign_map = 'Å'
 
+    "reassign assignment
+    autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
+
 
     
     " set a minimum source editor width
