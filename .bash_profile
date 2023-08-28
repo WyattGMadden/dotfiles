@@ -105,3 +105,39 @@ EOF
   echo "File $1.Rmd created."
 }
 
+
+### Create a new md file
+md() {
+    if [ $# -lt 1 ]; then
+        echo "Usage: create_md_template <filename> [author]"
+        return 1
+    fi
+
+    filename="$1.md"
+    author="${2:-Wyatt Madden}"
+    date="$(date +'%Y-%m-%d')"
+
+    cat > "$filename" <<EOL
+# Title
+
+**Author:** $author  
+**Date:** $date
+
+## Introduction
+
+## Section 1
+
+### Subsection 1.1
+
+## Section 2
+
+### Subsection 2.1
+
+## Conclusion
+
+## References
+EOL
+
+    echo "Created $filename"
+}
+
