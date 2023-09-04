@@ -77,12 +77,12 @@ alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 
 ### send files to the cluster
 scpwto () {
-    scp "$1" "wmadden@clogin01.sph.emory.edu:./$2"
+    scp -r "$1" "wmadden@clogin01.sph.emory.edu:./$2"
 }
 
 ### return files from the cluster
 scpwfrom () {
-    scp "wmadden@clogin01.sph.emory.edu:./$1" "$2"
+    scp -r "wmadden@clogin01.sph.emory.edu:./$1" "$2"
 }
 
 ### Create a new Rmd file
