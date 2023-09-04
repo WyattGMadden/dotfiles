@@ -60,6 +60,9 @@ PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] [\w]\[\033[00m\]'
 
 
 ###ALIASES###
+alias c="cd"
+alias l="ls"
+alias m="mkdir"
 alias v="nvim"
 alias mu="mupdf-gl"
 alias i="ipython"
@@ -118,10 +121,18 @@ md() {
     date="$(date +'%Y-%m-%d')"
 
     cat > "$filename" <<EOL
-# Title
+---
+title: "Post"
+subtitle: ""
+author: $author
+description: ""
+institute: ""
+date: $date
+abstract: "YAML"
+keywords: 
+tags:
+---
 
-**Author:** $author  
-**Date:** $date
 
 ## Introduction
 
@@ -141,3 +152,10 @@ EOL
     echo "Created $filename"
 }
 
+
+#render md to html
+pmd() {
+  input_file="$1"
+  output_file="${input_file%.md}.html"
+  pandoc -s "$input_file" -o "$output_file" --mathjax
+}
