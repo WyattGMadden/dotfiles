@@ -63,12 +63,12 @@ call plug#begin('~/.vim/plugged')
     " remapping selection :: send multiple lines
     vmap <Space> <Plug>RDSendSelection
     " map pipe  
-    autocmd FileType r inoremap <buffer> Â <Esc>:normal! a %>%<CR>a 
-    autocmd FileType rnoweb inoremap <buffer> Â <Esc>:normal! a %>%<CR>a 
-    autocmd FileType rmd inoremap <buffer> Â <Esc>:normal! a %>%<CR>a
+    autocmd FileType r inoremap <buffer> Â \|>
+    autocmd FileType rnoweb inoremap <buffer> Â \|>
+    autocmd FileType rmd inoremap <buffer> Â \|>
 
     "reassign assignment
-    autocmd FileType r inoremap <buffer> Å <Esc>:normal! a <-<CR>a 
+    autocmd FileType r inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     autocmd FileType rnoweb inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     autocmd FileType rmd inoremap <buffer> Å <Esc>:normal! a <-<CR>a
     let R_assign_map = 'Å'
