@@ -65,7 +65,7 @@ call plug#begin('~/.vim/plugged')
     " map pipe  
     autocmd FileType r inoremap <buffer> Â <Space>\|>
     autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
-    autocmd FileType rmd inoremap <buffer> Â  \|>
+    autocmd FileType rmd inoremap <buffer> Â <Space>\|>
 
     "reassign assignment
     autocmd FileType r inoremap <buffer> Å <Space><-<Space>
