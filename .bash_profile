@@ -159,3 +159,9 @@ pmd() {
   output_file="${input_file%.md}.html"
   pandoc -s "$input_file" -o "$output_file" --mathjax
 }
+
+#create file and open in nvim
+tv() {
+  touch "$1"
+  nvim "$1"
+}
