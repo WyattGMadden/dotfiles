@@ -165,3 +165,16 @@ tv() {
   touch "$1"
   nvim "$1"
 }
+
+
+#Download youtube to flac
+ytflac() {
+  local url="$1"
+  yt-dlp -f 'bestaudio/best' \
+         --verbose \
+         --extract-audio \
+         --audio-format flac \
+         --audio-quality 0 \
+         "$url"
+}
+
