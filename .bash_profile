@@ -17,6 +17,11 @@ then
     export TERM=screen-256color
 fi
 
+##########################
+###########PATHS##########
+##########################
+#
+
 
 #PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
 
@@ -28,6 +33,10 @@ export PATH
 # added by Anaconda3 5.2.0 installer
 export PATH="/Users/wyattmadden/anaconda3/bin:$PATH"
 export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
+
+#macports path
+export PATH=$PATH:/opt/local/bin
+
 
 
 
@@ -177,4 +186,23 @@ ytflac() {
          --audio-quality 0 \
          "$url"
 }
+
+
+##
+# Your previous /Users/wyattmadden/.bash_profile file was backed up as /Users/wyattmadden/.bash_profile.macports-saved_2023-10-22_at_09:26:18
+##
+
+# MacPorts Installer addition on 2023-10-22_at_09:26:18: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2023-10-22_at_09:32:17: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2023-10-22_at_09:39:08: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
 
