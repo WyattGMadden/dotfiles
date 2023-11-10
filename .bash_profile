@@ -162,6 +162,57 @@ EOL
 }
 
 
+
+################################
+###Create a new LaTeX project###
+################################
+tex_init() {
+    # Check if a directory name is provided
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: create_latex_project <directory_name>"
+        return 1
+    fi
+
+    # Create the directory and navigate into it
+    mkdir -p "$1"
+    cd "$1" || return
+
+    # Create the main LaTeX file
+    cat > main.tex <<- 'EOF'
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{biblatex} % Biblatex package
+\addbibresource{references.bib} % BibTeX bibliography file
+
+\title{Report}
+\author{Wyatt Madden}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Your text here.
+
+\section{Conclusion}
+Your text here.
+
+\printbibliography
+
+\end{document}
+EOF
+
+    # Create an empty BibTeX file
+    touch references.bib
+
+    echo "LaTeX project created in directory $1"
+}
+
+# Usage: create_latex_project <directory_name>
+
+
+
 #render md to html
 pmd() {
   input_file="$1"
