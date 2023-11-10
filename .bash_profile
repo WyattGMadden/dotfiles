@@ -212,6 +212,31 @@ EOF
 # Usage: create_latex_project <directory_name>
 
 
+#################################
+###Move latest download to pwd###
+#################################
+mv_download() {
+    # Define the Downloads directory (modify if different)
+    downloads_folder="$HOME/Downloads"
+
+    # Find the most recent file in Downloads
+    recent_file=$(ls -t "$downloads_folder" | head -n1)
+
+    # Check if a file was found
+    if [ -z "$recent_file" ]; then
+        echo "No files found in Downloads."
+        return 1
+    fi
+
+    # Move the most recent file to the current directory
+    mv "$downloads_folder/$recent_file" .
+
+    echo "$recent_file has been moved to the current directory."
+}
+
+# Usage: move_latest_download
+
+
 
 #render md to html
 pmd() {
