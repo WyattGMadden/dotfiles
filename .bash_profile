@@ -68,6 +68,15 @@ PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] [\w]\[\033[00m\]'
 
 
 
+##################
+###ADD API KEYS###
+##################
+if [ -f ~/.secrets.sh ]; then
+  source ~/.secrets.sh
+fi
+
+
+
 ###ALIASES###
 alias c="cd"
 alias l="ls"
