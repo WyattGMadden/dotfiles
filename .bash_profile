@@ -188,7 +188,8 @@ tex_init() {
 
     # Create the main LaTeX file
     cat > main.tex <<- 'EOF'
-\documentclass{article}
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} % Set margins
 \usepackage[utf8]{inputenc}
 \usepackage{biblatex} % Biblatex package
 \addbibresource{references.bib} % BibTeX bibliography file
