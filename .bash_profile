@@ -273,6 +273,27 @@ ytflac() {
          "$url"
 }
 
+######################
+#####HPC SPECIFIC######
+######################
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+if [ -n $R_LIBS ]; then
+      export R_LIBS=~/Rlibs:$R_LIBS
+else
+      export R_LIBS=~/Rlibs
+fi
+
+
+echo "Sourcing .bash_profile"
+
+
+
 
 ##
 # Your previous /Users/wyattmadden/.bash_profile file was backed up as /Users/wyattmadden/.bash_profile.macports-saved_2023-10-22_at_09:26:18
