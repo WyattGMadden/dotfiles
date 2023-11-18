@@ -109,14 +109,15 @@ alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 
+#hpc specific
 if [ "$(hostname)" == "clogin01" ]; then
     alias i='conda activate ml_dl_env && srun -p interactive-cpu --pty ipython'
-    alias r='module load R && srun -p interactive-cpu --pty R'
+    alias r='(module load R && srun -p interactive-cpu --pty R)'
+    alias sqw="squeue -u wmadden"
+
 fi
 
-#hpc specific
 
-alias sqw="squeue -u wmadden"
 
 ###############
 ###FUNCTIONS###

@@ -105,12 +105,18 @@ call plug#begin('~/.vim/plugged')
     let g:slime_default_config = {"socket_name": "default", "target_pane": "{next}"}
     let g:slime_python_ipython = 1
     let g:slime_preserve_curpos = 0 "don't preserve cursor position when sending code
-    let g:slime_no_mappings = 1 "don't define default mappings
+"    let g:slime_no_mappings = 1 "don't define default mappings
     autocmd FileType python nmap <buffer> <LocalLeader>l <Plug>SlimeLineSend
     autocmd FileType python nmap <buffer> <LocalLeader>c <Plug>SlimeParagraphSend
     autocmd FileType python xmap <buffer> <LocalLeader>c <Plug>SlimeRegionSend
     autocmd FileType python nmap <buffer> <LocalLeader>q :call slime#send("quit()\n") <CR>`
     autocmd FileType python nmap <buffer> <LocalLeader>i :call slime#send("i\n") <CR>`
+
+    autocmd FileType r nmap <buffer> <LocalLeader>l <Plug>SlimeLineSend
+    autocmd FileType r nmap <buffer> <LocalLeader>c <Plug>SlimeParagraphSend
+    autocmd FileType r xmap <buffer> <LocalLeader>c <Plug>SlimeRegionSend
+    autocmd FileType r nmap <buffer> <LocalLeader>q :call slime#send("quit()\n") <CR>`
+    autocmd FileType r nmap <buffer> <LocalLeader>i :call slime#send("i\n") <CR>`
     "xmap <LocalLeader>cc <Plug>SlimeRegionSend
     "nmap <c-c><c-c> <Plug>SlimeParagraphSend
     "nmap <c-c>v     <Plug>SlimeConfig
