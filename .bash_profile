@@ -1,5 +1,12 @@
+
+
 #kitty 
-source /dev/stdin <<<"$(kitty + complete setup bash)"
+if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
+    # Commands to run when not on HPC
+	source /dev/stdin <<<"$(kitty + complete setup bash)"
+
+fi
+
 
 # Color
 export TERM=xterm-256color
@@ -39,8 +46,12 @@ export PATH=$PATH:/opt/local/bin
 
 
 
+#load fasd in on macbook (not hpc)
+if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
+    # Commands to run when not on HPC
+	eval "$(fasd --init auto)"
 
-eval "$(fasd --init auto)"
+fi
 
 
 ### Run tmux when terminal is opened
