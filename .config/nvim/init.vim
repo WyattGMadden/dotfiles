@@ -1,5 +1,6 @@
 
 
+
 call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'github/copilot.vim' 
@@ -219,6 +220,17 @@ call plug#end()
 
     
     
+" }}}
+
+" hpc {{{
+if system('hostname') == "your_hpc_hostname\n"
+    " HPC-specific settings
+    let R_cmd = 'srun -p interactive-cpu --pty bash'
+    let g:python3_host_prog = '/miniconda3/bin/python'
+
+    " ... other HPC-specific configurations ...
+endif
+
 " }}}
 
 
