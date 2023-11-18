@@ -44,6 +44,11 @@ export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
 #macports path
 export PATH=$PATH:/opt/local/bin
 
+#nvim path if on hpc
+if [ "$(hostname)" == "clogin01" ]; then
+	export PATH="$HOME/apps/nvim-linux64/bin:$PATH"
+fi
+
 
 
 #load fasd in on macbook (not hpc)
@@ -88,7 +93,9 @@ fi
 
 
 
+#############
 ###ALIASES###
+#############
 alias c="cd"
 alias l="ls"
 alias m="mkdir"
@@ -98,7 +105,14 @@ alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
-alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+
+if [ "$(hostname)" == "clogin01" ]; then
+	alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+fi
+
+#hpc specific
+
+alias sqw="squeue -u wmadden"
 
 ###############
 ###FUNCTIONS###
