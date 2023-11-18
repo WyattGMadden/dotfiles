@@ -108,6 +108,7 @@ alias brave="open -a 'Brave Browser'"
 
 if [ "$(hostname)" == "clogin01" ]; then
 	alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+    alias i='conda activate ml_dl_env && srun --pty ipython'
 fi
 
 #hpc specific
