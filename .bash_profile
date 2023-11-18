@@ -30,19 +30,21 @@ fi
 #
 
 
-#PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
+if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
+    #PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
+    #
+    ## Setting PATH for Python 3.
+    ## The original version is saved in .bash_profile.pysave
+    PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+    export PATH
 
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
+    # added by Anaconda3 5.2.0 installer
+    export PATH="/Users/wyattmadden/anaconda3/bin:$PATH"
+    export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
 
-# added by Anaconda3 5.2.0 installer
-export PATH="/Users/wyattmadden/anaconda3/bin:$PATH"
-export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
-
-#macports path
-export PATH=$PATH:/opt/local/bin
+    #macports path
+    export PATH=$PATH:/opt/local/bin
+fi
 
 #nvim path if on hpc
 if [ "$(hostname)" == "clogin01" ]; then
@@ -105,10 +107,11 @@ alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
+alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 
 if [ "$(hostname)" == "clogin01" ]; then
-	alias sshw="ssh wmadden@clogin01.sph.emory.edu"
-    alias i='conda activate ml_dl_env && srun --pty ipython'
+    alias i='conda activate ml_dl_env && srun -p interactive-cpu --pty ipython'
+    alias r='module load R && srun -p interactive-cpu --pty R'
 fi
 
 #hpc specific

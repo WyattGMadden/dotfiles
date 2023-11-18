@@ -36,60 +36,66 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Nvim-R {{{
-    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-    "Plug 'chrisbra/csv.vim'
-
-    "ft plugins enabled (necessary for csv plugin
-    :filetype plugin on
-
-    let R_csv_app = 'terminal:vd'
-
-    " custom nvim-r mappings
-    function! s:customNvimRMappings()
-        map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
-        map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
-        map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
-        map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
-    endfunction
-    augroup myNvimR
-       au!
-       autocmd filetype r call s:customNvimRMappings()
-       autocmd filetype rmd call s:customNvimRMappings()
-    augroup end
-    "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
-
-    " mappings
-    " remapping the basic :: send line
-    nmap <Space> <Plug>RDSendLine
-    " remapping selection :: send multiple lines
-    vmap <Space> <Plug>RDSendSelection
-    " map pipe  
-    autocmd FileType r inoremap <buffer> Â <Space>\|>
-    autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
-    autocmd FileType rmd inoremap <buffer> Â <Space>\|>
-
-    "reassign assignment
-    autocmd FileType r inoremap <buffer> Å <Space><-<Space>
-    autocmd FileType rnoweb inoremap <buffer> Å <Space><-<Space>
-    autocmd FileType rmd inoremap <buffer> Å <Space><-<Space>
-    let R_assign_map = 'Å'
-
-    "reassign assignment
-    autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
+    if system('hostname') != "clogin01"
+        Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+        "Plug 'chrisbra/csv.vim'
+        "" hpc {{{
 
 
-    
-    " set a minimum source editor width
-    let R_min_editor_width = 80
+    " }}}
 
-    " make sure the console is at the bottom by making it really wide
-    let R_rconsole_width = 1000
+        "ft plugins enabled (necessary for csv plugin
+        :filetype plugin on
 
-    " show arguments for functions during omnicompletion
-    let R_show_args = 1
+        let R_csv_app = 'terminal:vd'
 
-    " Don't expand a dataframe to show columns by default
-    let R_objbr_opendf = 0
+        " custom nvim-r mappings
+        function! s:customNvimRMappings()
+            map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
+            map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
+            map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
+            map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
+        endfunction
+        augroup myNvimR
+           au!
+           autocmd filetype r call s:customNvimRMappings()
+           autocmd filetype rmd call s:customNvimRMappings()
+        augroup end
+        "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
+
+        " mappings
+        " remapping the basic :: send line
+        nmap <Space> <Plug>RDSendLine
+        " remapping selection :: send multiple lines
+        vmap <Space> <Plug>RDSendSelection
+        " map pipe  
+        autocmd FileType r inoremap <buffer> Â <Space>\|>
+        autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
+        autocmd FileType rmd inoremap <buffer> Â <Space>\|>
+
+        "reassign assignment
+        autocmd FileType r inoremap <buffer> Å <Space><-<Space>
+        autocmd FileType rnoweb inoremap <buffer> Å <Space><-<Space>
+        autocmd FileType rmd inoremap <buffer> Å <Space><-<Space>
+        let R_assign_map = 'Å'
+
+        "reassign assignment
+        autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
+
+
+        
+        " set a minimum source editor width
+        let R_min_editor_width = 80
+
+        " make sure the console is at the bottom by making it really wide
+        let R_rconsole_width = 1000
+
+        " show arguments for functions during omnicompletion
+        let R_show_args = 1
+
+        " Don't expand a dataframe to show columns by default
+        let R_objbr_opendf = 0
+    endif
 
 
 " }}}
@@ -222,16 +228,6 @@ call plug#end()
     
 " }}}
 
-" hpc {{{
-if system('hostname') == "clogin01"
-    " HPC-specific settings
-    let R_cmd = 'srun -p interactive-cpu --pty bash'
-
-
-    " ... other HPC-specific configurations ...
-endif
-
-" }}}
 
 
 
