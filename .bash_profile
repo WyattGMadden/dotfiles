@@ -108,6 +108,10 @@ alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+alias gaa="git add -A"
+alias gcm="git commit -m"
+alias gpom="git push origin main"
+alias gpullom="git pull origin main"
 
 #hpc specific
 if [ "$(hostname)" == "clogin01" ]; then
