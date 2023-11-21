@@ -108,6 +108,8 @@ alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+
+alias ga="git add"
 alias gaa="git add -A"
 alias gcm="git commit -m"
 alias gpom="git push origin main"
@@ -305,6 +307,16 @@ ytflac() {
          --audio-format flac \
          --audio-quality 0 \
          "$url"
+}
+
+#take multiple steps back
+cdb() {
+    local steps=$1
+    local path=""
+    for ((i=0; i<steps; i++)); do
+        path+="../"
+    done
+    cd $path
 }
 
 ######################
