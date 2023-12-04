@@ -36,7 +36,8 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Nvim-R {{{
-    if system('hostname') != "clogin01"
+" if not on hpc
+    if $HOSTNAME != 'clogin01'
         Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
         "Plug 'chrisbra/csv.vim'
         "" hpc {{{
