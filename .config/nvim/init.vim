@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree' "nerdtree
     Plug 'mfussenegger/nvim-dap' "debugging
     Plug 'rcarriga/nvim-dap-ui' "debugging
+    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
     """""""""""""""""""""
     """NERDTree Plugin"""
     """""""""""""""""""""
@@ -36,67 +37,63 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Nvim-R {{{
-" if not on hpc
-    if $HOSTNAME != 'clogin01'
-        Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
         "Plug 'chrisbra/csv.vim'
         "" hpc {{{
 
 
     " }}}
 
-        "ft plugins enabled (necessary for csv plugin
-        :filetype plugin on
+    "ft plugins enabled (necessary for csv plugin
+    :filetype plugin on
 
-        let R_csv_app = 'terminal:vd'
+    let R_csv_app = 'terminal:vd'
 
-        " custom nvim-r mappings
-        function! s:customNvimRMappings()
-            map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
-            map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
-            map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
-            map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
-        endfunction
-        augroup myNvimR
-           au!
-           autocmd filetype r call s:customNvimRMappings()
-           autocmd filetype rmd call s:customNvimRMappings()
-        augroup end
-        "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
+    " custom nvim-r mappings
+    function! s:customNvimRMappings()
+        map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
+        map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
+        map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
+        map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
+    endfunction
+    augroup myNvimR
+       au!
+       autocmd filetype r call s:customNvimRMappings()
+       autocmd filetype rmd call s:customNvimRMappings()
+    augroup end
+    "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
 
-        " mappings
-        " remapping the basic :: send line
-        nmap <Space> <Plug>RDSendLine
-        " remapping selection :: send multiple lines
-        vmap <Space> <Plug>RDSendSelection
-        " map pipe  
-        autocmd FileType r inoremap <buffer> Â <Space>\|>
-        autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
-        autocmd FileType rmd inoremap <buffer> Â <Space>\|>
+    " mappings
+    " remapping the basic :: send line
+    nmap <Space> <Plug>RDSendLine
+    " remapping selection :: send multiple lines
+    vmap <Space> <Plug>RDSendSelection
+    " map pipe  
+    autocmd FileType r inoremap <buffer> Â <Space>\|>
+    autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
+    autocmd FileType rmd inoremap <buffer> Â <Space>\|>
 
-        "reassign assignment
-        autocmd FileType r inoremap <buffer> Å <Space><-<Space>
-        autocmd FileType rnoweb inoremap <buffer> Å <Space><-<Space>
-        autocmd FileType rmd inoremap <buffer> Å <Space><-<Space>
-        let R_assign_map = 'Å'
+    "reassign assignment
+    autocmd FileType r inoremap <buffer> Å <Space><-<Space>
+    autocmd FileType rnoweb inoremap <buffer> Å <Space><-<Space>
+    autocmd FileType rmd inoremap <buffer> Å <Space><-<Space>
+    let R_assign_map = 'Å'
 
-        "reassign assignment
-        autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
+    "reassign assignment
+    autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
 
 
-        
-        " set a minimum source editor width
-        let R_min_editor_width = 80
+    
+    " set a minimum source editor width
+    let R_min_editor_width = 80
 
-        " make sure the console is at the bottom by making it really wide
-        let R_rconsole_width = 1000
+    " make sure the console is at the bottom by making it really wide
+    let R_rconsole_width = 1000
 
-        " show arguments for functions during omnicompletion
-        let R_show_args = 1
+    " show arguments for functions during omnicompletion
+    let R_show_args = 1
 
-        " Don't expand a dataframe to show columns by default
-        let R_objbr_opendf = 0
-    endif
+    " Don't expand a dataframe to show columns by default
+    let R_objbr_opendf = 0
 
 
 " }}}
@@ -138,18 +135,12 @@ call plug#begin('~/.vim/plugged')
 "
 
 " Autocomplete/snippets etc {{{
-    Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
     Plug 'sirver/UltiSnips'
-    Plug 'ncm2/ncm2-ultisnips'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
-    Plug 'gaalcaras/ncm-R' "for R
     Plug 'lervag/vimtex' "for tex
 
     " Press enter key to trigger snippet expansion
     " The parameters are the same as `:help feedkeys()`
-    inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
     let g:UltiSnipsExpandTrigger="<tab>"
 
     " c-j c-k for moving in snippet
@@ -162,9 +153,6 @@ call plug#begin('~/.vim/plugged')
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
 
     " IMPORTANT: :help Ncm2PopupOpen for more information
     set completeopt=noinsert,menuone,noselect
