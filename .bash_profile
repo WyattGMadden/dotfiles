@@ -328,12 +328,6 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# User specific environment and startup programs
-if [ -n $R_LIBS ]; then
-      export R_LIBS=~/Rlibs:$R_LIBS
-else
-      export R_LIBS=~/Rlibs
-fi
 
 
 echo "Sourcing .bash_profile"
