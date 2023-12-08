@@ -94,3 +94,13 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
   win:setFrame(f)
 end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end  -- Check if there is a focused window
+
+  local screen = win:screen()
+  local max = screen:frame()
+
+  win:setFrame(max)
+end)
+
