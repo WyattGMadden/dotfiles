@@ -94,6 +94,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
   win:setFrame(f)
 end)
 
+-- make window full screen (but not fullscreen)
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function()
   local win = hs.window.focusedWindow()
   if not win then return end  -- Check if there is a focused window
@@ -104,3 +105,38 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function()
   win:setFrame(max)
 end)
 
+-- Move window to next monitor
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end  -- Check if there is a focused window
+
+  local screen = win:screen()
+  local nextScreen = screen:next()
+  if not nextScreen then return end  -- Check if there is a next screen
+
+  win:moveToScreen(nextScreen, true, true)
+end)
+
+-- Move window to next monitor
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end  -- Check if there is a focused window
+
+  local screen = win:screen()
+  local previousScreen = screen:previous()
+  if not previousScreen then return end  -- Check if there is a previous screen
+
+  win:moveToScreen(previousScreen, true, true)
+end)
+
+-- Move window to previous monitor
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "P", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end  -- Check if there is a focused window
+
+  local screen = win:screen()
+  local nextScreen = screen:next()
+  if not nextScreen then return end  -- Check if there is a next screen
+
+  win:moveToScreen(nextScreen, true, true)
+end)
