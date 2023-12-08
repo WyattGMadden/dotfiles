@@ -30,29 +30,19 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 2)
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
+  if f.y == max.y and f.h <= max.h / 2 then
+    f.w = max.w
+    f.x = max.x
+  else
+    f.y = max.y
+    f.h = max.h / 2
+  end
   win:setFrame(f)
 end)
 
@@ -62,19 +52,45 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.y = max.y + (max.h / 2)
-  f.h = max.h / 2
+  if f.y >= (max.y + (max.h / 4)) then
+    f.x = max.x
+    f.w = max.w
+  else
+    f.y = max.y + max.h / 2
+    f.h = max.h / 2
+  end
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.y = max.y 
-  f.h = max.h / 2
+  if f.x == max.x and f.w == max.w / 2 then
+    f.y = max.y
+    f.h = max.h
+  else
+    f.x = max.x
+    f.w = max.w / 2
+  end
+  win:setFrame(f)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  if f.x >= max.x + max.w / 4 and f.w <= max.w / 2 then
+    f.y = max.y
+    f.h = max.h
+  else
+    f.x = max.x + max.w / 2
+    f.w = max.w / 2
+  end
   win:setFrame(f)
 end)
 
