@@ -132,6 +132,8 @@ call plug#begin('~/.vim/plugged')
 "
 " pyvim: {{{
     Plug 'jupyter-vim/jupyter-vim'
+    let g:jupyter_highlight_cells = 0
+
 " }}}
 "
 
@@ -158,6 +160,7 @@ call plug#begin('~/.vim/plugged')
     " IMPORTANT: :help Ncm2PopupOpen for more information
     set completeopt=noinsert,menuone,noselect
 " }}}
+
 
     "LATEX
     Plug 'lervag/vimtex'
@@ -220,8 +223,12 @@ call plug#end()
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
 
+
+    "disable python3 warning
+"    let g:loaded_python3_provider = 0
     
     
+
 " }}}
 
 
