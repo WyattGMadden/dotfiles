@@ -101,6 +101,7 @@ fi
 alias c="cd"
 alias l="ls"
 alias m="mkdir"
+alias t="trash"
 alias v="nvim"
 alias mu="mupdf-gl"
 alias i="ipython"
