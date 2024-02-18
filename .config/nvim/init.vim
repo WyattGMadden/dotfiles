@@ -4,6 +4,13 @@
 call plug#begin('~/.vim/plugged')
 " General {{{
     Plug 'github/copilot.vim' 
+    "default have gopilot disabled
+    "turn on with :Copilot enable
+    let g:copilot_enabled = 0
+    let mapleader = ";"
+    nnoremap <leader>co :Copilot enable<CR>
+
+
     Plug 'w0rp/ale' "Linting
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
@@ -224,8 +231,13 @@ call plug#end()
     let g:airline#extensions#tabline#buffer_nr_show = 1
 
 
+    """""""""""""""""""""""
+    "python specific
+    """""""""""""""""""""""
     "disable python3 warning
 "    let g:loaded_python3_provider = 0
+    let g:python3_host_prog = '~/anaconda3/bin/python3'
+
     
     
 
