@@ -1,13 +1,4 @@
 
-
-#kitty 
-if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
-    # Commands to run when not on HPC
-	source /dev/stdin <<<"$(kitty + complete setup bash)"
-
-fi
-
-
 # Color
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -23,43 +14,6 @@ if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
 then
     export TERM=screen-256color
 fi
-
-##########################
-###########PATHS##########
-##########################
-#
-
-
-if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
-    #PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
-    #
-    ## Setting PATH for Python 3.
-    ## The original version is saved in .bash_profile.pysave
-    PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-    export PATH
-
-    # added by Anaconda3 5.2.0 installer
-    export PATH="/Users/wyattmadden/anaconda3/bin:$PATH"
-    export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
-
-    #macports path
-    export PATH=$PATH:/opt/local/bin
-fi
-
-#nvim path if on hpc
-if [ "$(hostname)" == "clogin01" ]; then
-	export PATH="$HOME/apps/nvim-linux64/bin:$PATH"
-fi
-
-
-
-#load fasd in on macbook (not hpc)
-if [ "$(hostname)" == "wyatts-MacBook-Pro.local" ]; then
-    # Commands to run when not on HPC
-	eval "$(fasd --init auto)"
-
-fi
-
 
 ### Run tmux when terminal is opened
 # If there is a session, attach to it
@@ -83,17 +37,12 @@ PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] [\w]\[\033[00m\]'
   mkdir "$1"
   cd "$1"
 }
-
-
-
 ##################
 ###ADD API KEYS###
 ##################
 if [ -f ~/.secrets.sh ]; then
   source ~/.secrets.sh
 fi
-
-
 
 #############
 ###ALIASES###
@@ -115,15 +64,6 @@ alias gaa="git add -A"
 alias gcm="git commit -m"
 alias gpom="git push origin main"
 alias gpullom="git pull origin main"
-
-#hpc specific
-if [ "$(hostname)" == "clogin01" ]; then
-    alias i='conda activate ml_dl_env && srun -p interactive-cpu --pty ipython'
-    alias r='(module load R && srun -p interactive-cpu --pty R)'
-    alias sqw="squeue -u wmadden"
-
-fi
-
 
 
 ###############
@@ -319,38 +259,3 @@ cdb() {
     done
     cd $path
 }
-
-######################
-#####HPC SPECIFIC######
-######################
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
-
-
-echo "Sourcing .bash_profile"
-
-
-
-
-##
-# Your previous /Users/wyattmadden/.bash_profile file was backed up as /Users/wyattmadden/.bash_profile.macports-saved_2023-10-22_at_09:26:18
-##
-
-# MacPorts Installer addition on 2023-10-22_at_09:26:18: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-# MacPorts Installer addition on 2023-10-22_at_09:32:17: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-# MacPorts Installer addition on 2023-10-22_at_09:39:08: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
