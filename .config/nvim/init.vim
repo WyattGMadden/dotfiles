@@ -236,7 +236,8 @@ call plug#end()
     """""""""""""""""""""""
     "disable python3 warning
 "    let g:loaded_python3_provider = 0
-    let g:python3_host_prog = '~/anaconda3/bin/python3'
+    "let g:python3_host_prog = '~/anaconda3/bin/python3'
+    "let g:python3_host_prog = '~/miniconda3/bin/python3'
 
     
     
