@@ -169,7 +169,7 @@ tex_init() {
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry} % Set margins
 \usepackage[utf8]{inputenc}
-\usepackage{biblatex} % Biblatex package
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{references.bib} % BibTeX bibliography file
 
 \title{Report}
