@@ -58,6 +58,7 @@ alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
+alias sqw="squeue -u wmadden"
 
 alias ga="git add"
 alias gaa="git add -A"
@@ -168,7 +169,7 @@ tex_init() {
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry} % Set margins
 \usepackage[utf8]{inputenc}
-\usepackage{biblatex} % Biblatex package
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{references.bib} % BibTeX bibliography file
 
 \title{Report}

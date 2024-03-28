@@ -1,0 +1,71 @@
+
+
+#kitty 
+# Commands to run when not on HPC
+source /dev/stdin <<<"$(kitty + complete setup bash)"
+
+
+
+
+##########################
+###########PATHS##########
+##########################
+
+
+#for nvim
+export NVIM_PYTHON3_HOST_PROG='~/anaconda3/bin/python3'
+
+
+#PATH="/usr/local/bin:$PATH" #https://gist.github.com/shawnbot/3277580
+#
+## Setting PATH for Python 3.
+## The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/Users/wyattmadden/anaconda3/bin:$PATH"
+export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
+
+#macports path
+export PATH=$PATH:/opt/local/bin
+
+
+
+
+#load fasd in on macbook (not hpc)
+# Commands to run when not on HPC
+eval "$(fasd --init auto)"
+
+
+
+
+
+
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+
+
+
+
+
+
+
+# MacPorts Installer addition on 2023-10-22_at_09:26:18: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2023-10-22_at_09:32:17: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2023-10-22_at_09:39:08: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
