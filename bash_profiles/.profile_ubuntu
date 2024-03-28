@@ -28,3 +28,11 @@ fi
 
 #run z
 . ~/z/z.sh
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "${HOME}/.ssh-agent-thing"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    eval "$(<"${HOME}/.ssh-agent-thing")"
+fi
+
