@@ -57,8 +57,13 @@ alias i="ipython"
 alias jc="jupyter console"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"
 alias brave="open -a 'Brave Browser'"
+
+#for cluster
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 alias sqw="squeue -u wmadden"
+
+#for linux desktop ssh
+alias sshl="ssh wyattgmadden@10.44.231.170"
 
 alias ga="git add"
 alias gaa="git add -A"
@@ -79,6 +84,16 @@ scpwto () {
 ### return files from the cluster
 scpwfrom () {
     scp -r "wmadden@clogin01.sph.emory.edu:./$1" "$2"
+}
+
+### send files to the cluster
+scplto () {
+    scp -r "$1" "wyattgmadden@10.44.231.170:./$2"
+}
+
+### return files from the cluster
+scplfrom () {
+    scp -r "wyattgmadden@10.44.231.170:./$1" "$2"
 }
 
 ### Create a new Rmd file
@@ -260,3 +275,7 @@ cdb() {
     done
     cd $path
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
