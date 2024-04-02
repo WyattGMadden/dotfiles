@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree' "nerdtree
     Plug 'mfussenegger/nvim-dap' "debugging
     Plug 'rcarriga/nvim-dap-ui' "debugging
-    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+    Plug 'jalvesaq/Nvim-R'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     """""""""""""""""""""
     """NERDTree Plugin"""
