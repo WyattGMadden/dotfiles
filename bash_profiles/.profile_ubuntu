@@ -26,7 +26,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-#run z
+# run z
 . ~/z/z.sh
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -36,3 +36,6 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<"${HOME}/.ssh-agent-thing")"
 fi
 
+
+# additional paths
+export PATH="$HOME/miniconda3/bin:$PATH"
