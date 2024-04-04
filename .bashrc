@@ -77,6 +77,12 @@ alias gpullom="git pull origin main"
 ###FUNCTIONS###
 ###############
 
+### python environ for linux desktop tmux
+cai() {
+    conda activate finalmlenv
+    ipython
+}
+
 ### send files to the cluster
 scpwto () {
     scp -r "$1" "wmadden@clogin01.sph.emory.edu:./$2"
