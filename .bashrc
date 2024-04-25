@@ -276,6 +276,19 @@ cdb() {
     cd $path
 }
 
+#DownLoads Here
+#move recent files from downloads directory to current directory
+dlh() {
+  # Define the Downloads directory
+  DOWNLOADS_DIR=~/Downloads
+
+  # Find files in the Downloads directory that were modified in the last 10 minutes
+  # and move them to the current working directory
+  find "$DOWNLOADS_DIR" -type f -mmin -10 -exec mv {} . \;
+}
+
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
