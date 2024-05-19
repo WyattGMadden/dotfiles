@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
     let g:copilot_enabled = 0
     let mapleader = ";"
     nnoremap <leader>co :Copilot enable<CR>
+    vnoremap <leader>y "+y
 
 
     Plug 'w0rp/ale' "Linting
