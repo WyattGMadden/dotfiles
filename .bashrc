@@ -63,7 +63,7 @@ alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 alias sqw="squeue -u wmadden"
 
 #for linux desktop ssh
-alias sshl="ssh wyattgmadden@10.44.231.170"
+alias sshl="ssh wyattgmadden@192.168.1.191"
 alias ca="conda activate finalmlenv"
 
 alias ga="git add"
