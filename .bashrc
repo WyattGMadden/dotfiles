@@ -95,12 +95,12 @@ scpwfrom () {
 
 ### send files to the cluster
 scplto () {
-    scp -r "$1" "wyattgmadden@10.44.231.170:./$2"
+    scp -r "$1" "wyattgmadden@192.168.1.191:./$2"
 }
 
 ### return files from the cluster
 scplfrom () {
-    scp -r "wyattgmadden@10.44.231.170:./$1" "$2"
+    scp -r "wyattgmadden@192.168.1.191:./$1" "$2"
 }
 
 ### Create a new Rmd file
