@@ -39,3 +39,17 @@ fi
 
 # additional paths
 export PATH="$HOME/miniconda3/bin:$PATH"
+
+
+###################################
+###linux specific bash functions###
+###################################
+
+clip() {
+    if [ -f "$1" ]; then
+        xclip -selection clipboard < "$1"
+    else
+        echo "File does not exist: $1"
+    fi
+}
+
