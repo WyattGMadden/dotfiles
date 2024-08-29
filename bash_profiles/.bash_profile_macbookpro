@@ -40,6 +40,16 @@ eval "$(fasd --init auto)"
 
 
 
+################################
+#####Mac-specific functions#####
+################################
+clip() {
+    if [ -f "$1" ]; then
+        cat "$1" | pbcopy
+    else
+        echo "File does not exist: $1"
+    fi
+}
 
 
 
