@@ -13,6 +13,11 @@ call plug#begin('~/.vim/plugged')
 
 
     Plug 'w0rp/ale' "Linting
+    "Don't use any linters for tex files. 
+    let g:ale_linters = {
+      \ 'tex': [],
+      \}
+
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
     Plug 'ellisonleao/gruvbox.nvim' "Color scheme
@@ -240,7 +245,6 @@ call plug#end()
     "let g:python3_host_prog = '~/anaconda3/bin/python3'
     "let g:python3_host_prog = '~/miniconda3/bin/python3'
 
-    
     
 
 " }}}
