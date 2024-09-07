@@ -62,8 +62,6 @@ alias brave="open -a 'Brave Browser'"
 alias sshw="ssh wmadden@clogin01.sph.emory.edu"
 alias sqw="squeue -u wmadden"
 
-#for linux desktop ssh
-alias sshl="ssh wyattgmadden@192.168.1.191"
 alias ca="conda activate finalmlenv"
 
 alias ga="git add"
@@ -93,15 +91,22 @@ scpwfrom () {
     scp -r "wmadden@clogin01.sph.emory.edu:./$1" "$2"
 }
 
-### send files to the cluster
-scplto () {
-    scp -r "$1" "wyattgmadden@192.168.1.191:./$2"
+### send files to other
+scp_to() {
+    local server_alias=$1
+    local local_file_path=$2
+    local remote_file_path=$3
+    scp -r "$local_file_path" "${server_alias}:${remote_file_path}"
 }
 
-### return files from the cluster
-scplfrom () {
-    scp -r "wyattgmadden@192.168.1.191:./$1" "$2"
+### return files from other
+scp_from() {
+    local server_alias=$1
+    local remote_file_path=$2
+    local local_file_path=$3
+    scp -r "${server_alias}:${remote_file_path}" "$local_file_path"
 }
+
 
 ### Create a new Rmd file
 rmd() {
