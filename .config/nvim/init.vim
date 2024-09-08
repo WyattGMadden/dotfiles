@@ -244,6 +244,9 @@ call plug#end()
 "    let g:loaded_python3_provider = 0
     "let g:python3_host_prog = '~/anaconda3/bin/python3'
     "let g:python3_host_prog = '~/miniconda3/bin/python3'
+    if hostname() =~ 'emorycomputer'
+        let g:python3_host_prog = '/Users/wmadden/miniconda3/envs/neovim-python/bin/python'
+    endif
 
     
 
