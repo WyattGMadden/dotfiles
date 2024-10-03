@@ -105,6 +105,17 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function()
   win:setFrame(max)
 end)
 
+-- make window full screen (but not fullscreen)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "U", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end  -- Check if there is a focused window
+
+  local screen = win:screen()
+  local max = screen:frame()
+
+  win:setFrame(max)
+end)
+
 -- Move window to next monitor
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function()
   local win = hs.window.focusedWindow()
