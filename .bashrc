@@ -197,7 +197,11 @@ tex_init() {
 \usepackage[margin=1in]{geometry} % Set margins
 \usepackage[utf8]{inputenc}
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \addbibresource{references.bib} % BibTeX bibliography file
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\bl}{\mathbf}
 
 \title{Report}
 \author{Wyatt Madden}
