@@ -252,7 +252,7 @@ call plug#end()
 "    if hostname() =~ 'emorycomputer'
 "        let g:python3_host_prog = '/Users/wmadden/miniconda3/envs/neovim-python/bin/python'
 "    endif
-    let g:python3_host_prog = exepath('python3')
+    let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 
     
 
