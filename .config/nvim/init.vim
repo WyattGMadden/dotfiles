@@ -200,6 +200,11 @@ call plug#end()
     map <C-K> :bprev<Shift>
     :tnoremap <Esc> <C-\><C-n>
 
+    "fix scroll issue where scrolling on left pane effects right pane display
+    augroup FixBlankSplits
+      autocmd!
+      autocmd WinScrolled,CursorMoved * redraw!
+    augroup END
 
     "set numbering
     set number relativenumber
