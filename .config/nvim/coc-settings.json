@@ -1,0 +1,7 @@
+{
+  "julia.executablePath": "/Users/wmadden/.juliaup/bin/julia",
+  "julia.projectLoad": "local",      // use nearest Project.toml
+  "julia.trace.server": true,        // was "verbose" → now bool
+  "julia.format.run": false,         // disable on-type formatting
+  "julia.lint.run": false            // disable on-type linting
+}

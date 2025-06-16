@@ -15,8 +15,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale' "Linting
     "Don't use any linters for tex files. 
     let g:ale_linters = {
-      \ 'tex': [],
-      \}
+        \   'tex': [],
+        \   'r': ['lintr'],
+        \  'julia': [],
+    \}
 
     Plug 'overcache/NeoSolarized' "Color scheme
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' } "Color scheme
@@ -129,6 +131,11 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType r xmap <buffer> <LocalLeader>c <Plug>SlimeRegionSend
     autocmd FileType r nmap <buffer> <LocalLeader>q :call slime#send("quit()\n") <CR>`
     autocmd FileType r nmap <buffer> <LocalLeader>i :call slime#send("i\n") <CR>`
+
+    autocmd FileType julia nnoremap <buffer> <LocalLeader>l <Plug>SlimeLineSend
+    autocmd FileType julia xmap    <buffer> <LocalLeader>c <Plug>SlimeRegionSend
+    autocmd FileType julia nnoremap <buffer> <LocalLeader>r :SlimeSend0<CR>
+
     "xmap <LocalLeader>cc <Plug>SlimeRegionSend
     "nmap <c-c><c-c> <Plug>SlimeParagraphSend
     "nmap <c-c>v     <Plug>SlimeConfig
@@ -141,6 +148,14 @@ call plug#begin('~/.vim/plugged')
 "
 " stan {{{
     Plug 'eigenfoo/stan-vim'
+"}}}
+"
+" Julia {{{
+    let g:coc_global_extensions = ['coc-julia']
+    nnoremap <silent> gd <Plug>(coc-definition)
+    nnoremap <silent> K  <Plug>(coc-hover)
+    nnoremap <silent> <leader>rn <Plug>(coc-rename)
+    nnoremap <silent> <leader>ca <Plug>(coc-codeaction)
 "}}}
 "
 " pyvim: {{{
@@ -200,12 +215,6 @@ call plug#end()
     map <C-K> :bprev<Shift>
     :tnoremap <Esc> <C-\><C-n>
 
-    "fix scroll issue where scrolling on left pane effects right pane display
-    augroup FixBlankSplits
-      autocmd!
-      autocmd WinScrolled,CursorMoved * redraw!
-    augroup END
-
     "set numbering
     set number relativenumber
 
@@ -220,9 +229,6 @@ call plug#end()
     "set background=dark " or light if you want light mode
     "colorscheme gruvbox
 
-    "tmux hack to make truecolor work
-    set t_8f=^[[38;2;%lu;%lu;%lum
-    set t_8b=^[[48;2;%lu;%lu;%lum
 
     "set Leader and LocalLeader
     let mapleader = ","
@@ -255,6 +261,11 @@ call plug#end()
     let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 
     
+
+    """""""""""""""""""""""
+    "julia specific
+    """""""""""""""""""""""
+    autocmd BufWritePre *.jl silent! call CocAction('format')
 
 
 " }}}
