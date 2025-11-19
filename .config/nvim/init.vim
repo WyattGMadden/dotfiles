@@ -14,9 +14,11 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'w0rp/ale' "Linting
     "Don't use any linters for tex files. 
+    "" For new lintr (>= 3.0.0)
     let g:ale_linters = {
         \   'tex': [],
-        \   'r': ['lintr'],
+        \   'r': [],
+        \   'rmd': [],
         \  'julia': [],
     \}
 
