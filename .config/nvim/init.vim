@@ -72,6 +72,7 @@ call plug#begin('~/.vim/plugged')
         map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
         map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
         map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
+        map <silent> <LocalLeader>ja :call g:SendCmdToR("Rcpp::compileAttributes()")<CR>
     endfunction
     augroup myNvimR
        au!
