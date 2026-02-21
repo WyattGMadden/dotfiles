@@ -324,3 +324,27 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/Users/wmadden/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/Users/wmadden/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
+
+
+# claude path 
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
+
+
