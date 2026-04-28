@@ -31,7 +31,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree' "nerdtree
     Plug 'mfussenegger/nvim-dap' "debugging
     Plug 'rcarriga/nvim-dap-ui' "debugging
-    Plug 'jalvesaq/Nvim-R'
+    Plug 'R-nvim/R.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     """""""""""""""""""""
     """NERDTree Plugin"""
@@ -54,68 +55,6 @@ call plug#begin('~/.vim/plugged')
 
 " }}}
 
-" Nvim-R {{{
-        "Plug 'chrisbra/csv.vim'
-        "" hpc {{{
-
-
-    " }}}
-
-    "ft plugins enabled (necessary for csv plugin
-    :filetype plugin on
-
-    let R_csv_app = 'terminal:vd'
-
-    " custom nvim-r mappings
-    function! s:customNvimRMappings()
-        map <silent> <LocalLeader>jl :call g:SendCmdToR("devtools::load_all()")<CR>
-        map <silent> <LocalLeader>jd :call g:SendCmdToR("devtools::document()")<CR>
-        map <silent> <LocalLeader>jb :call g:SendCmdToR("devtools::build_readme()")<CR>
-        map <silent> <LocalLeader>jc :call g:SendCmdToR("devtools::check()")<CR>
-        map <silent> <LocalLeader>ja :call g:SendCmdToR("Rcpp::compileAttributes()")<CR>
-    endfunction
-    augroup myNvimR
-       au!
-       autocmd filetype r call s:customNvimRMappings()
-       autocmd filetype rmd call s:customNvimRMappings()
-    augroup end
-    "map  <LocalLeader>s :call g:SendCmdToR("search()")<CR>
-
-    " mappings
-    " remapping the basic :: send line
-    nmap <Space> <Plug>RDSendLine
-    " remapping selection :: send multiple lines
-    vmap <Space> <Plug>RDSendSelection
-    " map pipe  
-    autocmd FileType r inoremap <buffer> Â <Space>\|>
-    autocmd FileType rnoweb inoremap <buffer> Â <Space>\|>
-    autocmd FileType rmd inoremap <buffer> Â <Space>\|>
-
-    "reassign assignment
-    autocmd FileType r inoremap <buffer> Å <Space><-<Space>
-    autocmd FileType rnoweb inoremap <buffer> Å <Space><-<Space>
-    autocmd FileType rmd inoremap <buffer> Å <Space><-<Space>
-    let R_assign_map = 'Å'
-
-    "reassign assignment
-    autocmd FileType r inoremap <buffer> ı <Esc>:normal! abrowser()<CR>a
-
-
-    
-    " set a minimum source editor width
-    let R_min_editor_width = 80
-
-    " make sure the console is at the bottom by making it really wide
-    let R_rconsole_width = 1000
-
-    " show arguments for functions during omnicompletion
-    let R_show_args = 1
-
-    " Don't expand a dataframe to show columns by default
-    let R_objbr_opendf = 0
-
-
-" }}}
 " vim slime {{{
     Plug 'jpalardy/vim-slime'
     let g:slime_target = "tmux" 
@@ -208,6 +147,33 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 
+" to replace nvim-R {{{
+lua << EOF
+-- R.nvim setup
+require("r").setup({
+    min_editor_width = 80,
+    rconsole_width = 1000,
+    objbr_opendf = false,
+    hook = {
+        on_filetype = function()
+            vim.api.nvim_buf_set_keymap(0, "n", "<Space>", "<Plug>RDSendLine", {})
+            vim.api.nvim_buf_set_keymap(0, "v", "<Space>", "<Plug>RSendSelection", {})
+
+            vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>jl", "<Cmd>lua require('r.send').cmd('devtools::load_all()')<CR>", { desc = "devtools::load_all()" })
+            vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>jd", "<Cmd>lua require('r.send').cmd('devtools::document()')<CR>", { desc = "devtools::document()" })
+            vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>jb", "<Cmd>lua require('r.send').cmd('devtools::build_readme()')<CR>", { desc = "devtools::build_readme()" })
+            vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>jc", "<Cmd>lua require('r.send').cmd('devtools::check()')<CR>", { desc = "devtools::check()" })
+            vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>ja", "<Cmd>lua require('r.send').cmd('Rcpp::compileAttributes()')<CR>", { desc = "Rcpp::compileAttributes()" })
+
+            -- pipe |>
+            vim.api.nvim_buf_set_keymap(0, "i", "Â", " |>", {})
+            -- arrow <-
+            vim.api.nvim_buf_set_keymap(0, "i", "Å", " <- ", {})
+        end,
+    },
+})
+EOF
+" }}}
 
 " General {{{
     
