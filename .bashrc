@@ -71,9 +71,9 @@ alias gpom="git push origin main"
 alias gpullom="git pull origin main"
 
 # music
-alias ms "cmus-remote -p" #music start
-alias mp "cmus-remote -U" #music pause
-alias mn "cmus-remote -n" #music next
+alias ms="cmus-remote -p" #music start
+alias mp="cmus-remote -U" #music pause
+alias mn="cmus-remote -n" #music next
 
 
 
